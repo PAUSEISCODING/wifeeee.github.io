@@ -98,6 +98,25 @@ h2 {
     box-shadow: 0 3px 10px rgba(0,0,0,0.35);
 }
 
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    background: rgba(255, 180, 200, 0.05); /* soft rose glow */
+    border-top: 1px solid rgba(255, 200, 220, 0.1);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+    border-radius: 12px 12px 0 0;
+}
+
+.footer p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #f3d7dd;
+    line-height: 1.7;
+}
+
 /* Fade-in animation */
 .fade {
     opacity: 0;
