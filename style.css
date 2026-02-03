@@ -1,0 +1,102 @@
+/* Base styling */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #fff8f2;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #ffd4d4, #ffe9c6);
+    color: #4a2c2c;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+}
+
+/* Section layout */
+section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #d46a6a;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #ffe6df;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    ul li {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+    }
+}
