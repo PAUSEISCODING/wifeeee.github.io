@@ -61,47 +61,7 @@
     height: 3px;
     background: #f7e6e9;
     border-radius: 2px;
-}
-
-/* MOBILE MODE */
-@media (max-width: 700px) {
-
-    /* centre logo */
-    .navbar {
-        justify-content: center;
-    }
-
-    /* show burger */
-    .burger {
-        display: flex;
-        position: absolute;
-        right: 20px;
-    }
-
-    /* hide links by default */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(20, 15, 20, 0.95);
-        position: absolute;
-        top: 60px;
-        right: 0;
-        padding: 20px;
-        border-left: 1px solid rgba(255, 200, 220, 0.1);
-        border-bottom: 1px solid rgba(255, 200, 220, 0.1);
-        width: 180px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
-
-    .nav-links a {
-        padding: 10px 0;
-        font-size: 1rem;
-    }
-
-    /* when menu is open */
-    .nav-links.open {
-        display: flex;
-    }
+    transition: 0.3s ease;
 }
 
 /* Animate burger into an X */
@@ -117,22 +77,79 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Smooth animation */
-.burger span {
-    transition: 0.3s ease;
+/* MOBILE MODE */
+@media (max-width: 700px) {
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .burger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+    }
+
+    /* MOBILE MENU — soft slide + fade */
+    .nav-links {
+        display: flex; /* keep flex so it can animate */
+        flex-direction: column;
+        background: rgba(20, 15, 20, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 20px;
+        border-left: 1px solid rgba(255, 200, 220, 0.1);
+        border-bottom: 1px solid rgba(255, 200, 220, 0.1);
+        width: 180px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        border-radius: 0 0 0 12px;
+        backdrop-filter: blur(6px);
+
+        opacity: 0;
+        transform: translateY(-12px) translateX(10px);
+        pointer-events: none;          /* can't click when hidden */
+        transition:
+            opacity 0.35s ease,
+            transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+        pointer-events: auto;          /* clickable when open */
+    }
+
+    .nav-links a {
+        padding: 12px 0;
+        font-size: 1.05rem;
+        color: #f7e6e9;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 200, 220, 0.08);
+        transition: color 0.2s ease, padding-left 0.25s ease;
+    }
+
+    .nav-links a:hover {
+        color: #ffb3c9;
+        padding-left: 6px;
+    }
+
+    .nav-links a.active {
+        color: #ffb3c9;
+        font-weight: 600;
+    }
 }
 
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
-    background: #1a141a; /* deep warm plum */
-    color: #f7e6e9; /* soft rose-cream text */
+    background: #1a141a;
+    color: #f7e6e9;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
 }
 
-/* Soft vignette glow */
 body::before {
     content: "";
     position: fixed;
@@ -167,13 +184,7 @@ body::before {
 
 /* Us page hero — blend of both colours */
 .hero-us {
-    background: linear-gradient(
-        135deg,
-        #ff7f9f,   /* Summer pink */
-        #ff9966,   /* warm peach */
-        #4da6ff,   /* Callum blue */
-        #3f6cff    /* deeper blue */
-    );
+    background: linear-gradient(135deg, #ff7f9f, #ff9966, #4da6ff, #3f6cff);
     color: #f7e6e9;
 }
 
@@ -191,12 +202,11 @@ body::before {
 }
 
 h2 {
-    color: #ffb3c9; /* rose-gold accent */
+    color: #ffb3c9;
     font-size: 1.7rem;
     margin-bottom: 10px;
 }
 
-/* Paragraphs */
 .section p {
     color: #f3d7dd;
     font-size: 1.05rem;
@@ -245,7 +255,7 @@ h2 {
     text-align: center;
     padding: 40px 20px;
     margin-top: 60px;
-    background: rgba(255, 180, 200, 0.05); /* soft rose glow */
+    background: rgba(255, 180, 200, 0.05);
     border-top: 1px solid rgba(255, 200, 220, 0.1);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
     border-radius: 12px 12px 0 0;
