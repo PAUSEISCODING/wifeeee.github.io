@@ -1,4 +1,127 @@
 /* Global */
+/* NAVBAR BASE */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(255, 180, 200, 0.06);
+    border-bottom: 1px solid rgba(255, 200, 220, 0.1);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.nav-logo {
+    height: 32px;
+    width: auto;
+}
+
+/* DESKTOP LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #f7e6e9;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 180, 200, 0.15);
+    color: #ffb3c9;
+}
+
+.nav-links a.active {
+    background: rgba(255, 180, 200, 0.25);
+    color: #2b1a1a;
+    font-weight: 600;
+}
+
+/* BURGER MENU (HIDDEN ON DESKTOP) */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 24px;
+    height: 3px;
+    background: #f7e6e9;
+    border-radius: 2px;
+}
+
+/* MOBILE MODE */
+@media (max-width: 700px) {
+
+    /* centre logo */
+    .navbar {
+        justify-content: center;
+    }
+
+    /* show burger */
+    .burger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+    }
+
+    /* hide links by default */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(20, 15, 20, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 20px;
+        border-left: 1px solid rgba(255, 200, 220, 0.1);
+        border-bottom: 1px solid rgba(255, 200, 220, 0.1);
+        width: 180px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        font-size: 1rem;
+    }
+
+    /* when menu is open */
+    .nav-links.open {
+        display: flex;
+    }
+}
+
+/* Animate burger into an X */
+.burger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Smooth animation */
+.burger span {
+    transition: 0.3s ease;
+}
+
 body {
     margin: 0;
     font-family: "Poppins", sans-serif;
@@ -34,6 +157,24 @@ body::before {
     font-size: 3rem;
     margin: 0;
     font-weight: 700;
+}
+
+/* Callum page hero override */
+.hero-callum {
+    background: linear-gradient(135deg, #4da6ff, #6ecbff, #3f6cff);
+    color: #e9f4ff;
+}
+
+/* Us page hero — blend of both colours */
+.hero-us {
+    background: linear-gradient(
+        135deg,
+        #ff7f9f,   /* Summer pink */
+        #ff9966,   /* warm peach */
+        #4da6ff,   /* Callum blue */
+        #3f6cff    /* deeper blue */
+    );
+    color: #f7e6e9;
 }
 
 .tagline {
